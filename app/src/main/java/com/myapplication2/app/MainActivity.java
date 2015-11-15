@@ -1,11 +1,14 @@
 package com.myapplication2.app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TableLayout;
 
 import static android.view.View.INVISIBLE;
@@ -15,6 +18,8 @@ public class MainActivity extends Activity {
 
     private TableLayout tableNewPlayer;
     private Button btnNewPlayer;
+    private EditText editTextPlayer1;
+    private EditText editTextPlayer2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +28,8 @@ public class MainActivity extends Activity {
 
         tableNewPlayer = (TableLayout)findViewById(R.id.tableNewPlayer);
         btnNewPlayer = (Button)findViewById(R.id.btnNewPlayer);
+        editTextPlayer1 = (EditText) findViewById(R.id.editTextPlayer1);
+        editTextPlayer2 = (EditText) findViewById(R.id.editTextPlayer2);
     }
 
 
@@ -57,4 +64,12 @@ public class MainActivity extends Activity {
             btnNewPlayer.setText("New player");
         }
     }
+
+    public void goToHomeActivity(View view){
+        Intent intent = new Intent(this, HomeActivity.class);
+        intent.putExtra("NamePlayer1", editTextPlayer1.getText().toString());
+        intent.putExtra("NamePlayer2", editTextPlayer2.getText().toString());
+        startActivity(intent);
+    }
+
 }
