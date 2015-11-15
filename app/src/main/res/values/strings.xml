@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">HorseGo</string>
+
+    <string name="WELCOME">W  E  L  C  O  M  E</string>
+
+    <string name="btnNewPlayer">New player</string>
+    <string name="btnStart">Start</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="textViewPlayer1">Player 1</string>
+    <string name="editTextPlayer1">Name</string>
+
+    <string name="textViewPlayer2">Player 2</string>
+    <string name="editTextPlayer2">Name</string>
+
+    <string name="textViewPlayer3">Player 3</string>
+    <string name="editTextPlayer3">Name</string>
+
+</resources>
