@@ -33,7 +33,7 @@ public class HomeActivity extends Activity {
 
         progressBarPlayer1 = (ProgressBar) findViewById(R.id.progressBarPlayer1);
         progressBarPlayer2 = (ProgressBar) findViewById(R.id.progressBarPlayer2);
-       
+
     }
 
     public void start(View view){
@@ -58,8 +58,6 @@ public class HomeActivity extends Activity {
             } else
             toast1.show();
               break;
-
-
 
         }
     }
