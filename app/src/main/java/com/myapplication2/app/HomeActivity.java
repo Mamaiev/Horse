@@ -33,37 +33,33 @@ public class HomeActivity extends Activity {
 
         progressBarPlayer1 = (ProgressBar) findViewById(R.id.progressBarPlayer1);
         progressBarPlayer2 = (ProgressBar) findViewById(R.id.progressBarPlayer2);
+       
     }
 
-    public void startPlayer1(View view){
+    public void start(View view){
         Toast toast1 = Toast.makeText(getApplicationContext(), "Player 1 win!", Toast.LENGTH_LONG);
-        Toast toast2 = Toast.makeText(getApplicationContext(), "Player 2 win!", Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getApplicationContext(), "wtf", Toast.LENGTH_LONG);
+        toast.show();
         int progress = 0;
-        int progress2 = 0;
-        int a, b;
-        while (progress < 100 || progress2 < 100){
+        int a;
+        progressBarPlayer1.setMax(100);
+        progressBarPlayer1.setProgress(20);
+
+        while (progress < 100 ){
             try {
-                Thread.sleep(10);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             a = (int) Math.random()*10;
-            b = (int) Math.random()*10;
             progress += progress + a;
-            progress2 += progress2 + b;
-
             if(progressBarPlayer1.getProgress() < 100 && a < 100 - progressBarPlayer1.getProgress()){
             progressBarPlayer1.setProgress(progress);
             } else
             toast1.show();
-//              break;
+              break;
 
-            if(progressBarPlayer2.getProgress() < 100 && a < 100 - progressBarPlayer2.getProgress()) {
-                progressBarPlayer2.setProgress(progress2);
-            }
-            else
-            toast2.show();
-                break;
+
 
         }
     }
