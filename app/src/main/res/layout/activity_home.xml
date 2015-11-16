@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:id="@+id/activity_home" android:weightSum="1">
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
+            android:layout_weight="0.27">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/textViewPlayer1"
+                android:id="@+id/txtViewPlayer1ActivityHome" android:layout_gravity="center_horizontal"/>
+        <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="26dp"
+                android:id="@+id/progressBarPlayer1" android:layout_gravity="center"
+                android:clickable="false" android:indeterminate="false"/>
+    </FrameLayout>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                 android:layout_weight="0.27">
+        <TextView android:layout_width="wrap_content" android:layout_height="55dp"
+                  android:textAppearance="?android:attr/textAppearanceMedium" android:text="@string/textViewPlayer2"
+                  android:id="@+id/txtViewPlayer2ActivityHome" android:layout_gravity="center_horizontal"/>
+        <ProgressBar style="?android:attr/progressBarStyleHorizontal" android:layout_width="fill_parent"
+                     android:layout_height="26dp" android:id="@+id/progressBarPlayer2"
+                     android:layout_gravity="center" android:clickable="false"/>
+    </FrameLayout>
+    <Button
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:text="@string/btnStart"
+            android:id="@+id/btnStart" android:layout_gravity="center_horizontal" android:layout_weight="0.13"
+            android:onClick="start"/>
+</LinearLayout>
