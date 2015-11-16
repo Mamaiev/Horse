@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -30,25 +31,40 @@ public class HomeActivity extends Activity {
         txtViewPlayer1ActivityHome.setText(getIntent().getStringExtra("NamePlayer1"));
         txtViewPlayer2ActivityHome.setText(getIntent().getStringExtra("NamePlayer2"));
 
+        progressBarPlayer1 = (ProgressBar) findViewById(R.id.progressBarPlayer1);
+        progressBarPlayer2 = (ProgressBar) findViewById(R.id.progressBarPlayer2);
     }
 
-
-    public void start(View view){
+    public void startPlayer1(View view){
+        Toast toast1 = Toast.makeText(getApplicationContext(), "Player 1 win!", Toast.LENGTH_LONG);
+        Toast toast2 = Toast.makeText(getApplicationContext(), "Player 2 win!", Toast.LENGTH_LONG);
         int progress = 0;
-        Random random = new Random();
-        while (progress < 100){
+        int progress2 = 0;
+        int a, b;
+        while (progress < 100 || progress2 < 100){
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (progressBarPlayer1.getProgress() <= 100) {
-                progressBarPlayer1.setProgress((int) Math.random() * 44);
-            }else
+            a = (int) Math.random()*10;
+            b = (int) Math.random()*10;
+            progress += progress + a;
+            progress2 += progress2 + b;
+
+            if(progressBarPlayer1.getProgress() < 100 && a < 100 - progressBarPlayer1.getProgress()){
+            progressBarPlayer1.setProgress(progress);
+            } else
+            toast1.show();
+//
+
+            if(progressBarPlayer2.getProgress() < 100 && a < 100 - progressBarPlayer2.getProgress()) {
+                progressBarPlayer2.setProgress(progress2);
+            }
+            else
+            toast2.show();
                 break;
+
         }
     }
-
-
-
 }

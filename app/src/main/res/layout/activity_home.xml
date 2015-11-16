@@ -35,5 +35,5 @@
             android:layout_height="wrap_content"
             android:text="@string/btnStart"
             android:id="@+id/btnStart" android:layout_gravity="center_horizontal" android:layout_weight="0.13"
-            android:onClick="start"/>
+            android:onClick="startPlayer1"/>
 </LinearLayout>
