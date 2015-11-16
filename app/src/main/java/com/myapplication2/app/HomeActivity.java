@@ -56,7 +56,7 @@ public class HomeActivity extends Activity {
             progressBarPlayer1.setProgress(progress);
             } else
             toast1.show();
-//
+//              break;
 
             if(progressBarPlayer2.getProgress() < 100 && a < 100 - progressBarPlayer2.getProgress()) {
                 progressBarPlayer2.setProgress(progress2);
