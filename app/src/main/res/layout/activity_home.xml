@@ -22,7 +22,7 @@
                 android:id="@+id/progressBarPlayer1"
                 android:layout_gravity="center"
                 android:clickable="false" android:indeterminate="false"
-                />
+                android:max="100"/>
     </FrameLayout>
     <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                  android:layout_weight="0.27">

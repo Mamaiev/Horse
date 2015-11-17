@@ -1,7 +1,9 @@
 package com.myapplication2.app;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -12,9 +14,9 @@ import java.util.Random;
 
 public class HomeActivity extends Activity {
 
-    ProgressBar progressBarPlayer1;
-    ProgressBar progressBarPlayer2;
-    Button btnStart;
+    private ProgressBar progressBarPlayer1;
+    private ProgressBar progressBarPlayer2;
+    private Button btnStart;
 
     private TextView txtViewPlayer1ActivityHome;
     private TextView txtViewPlayer2ActivityHome;
@@ -33,32 +35,41 @@ public class HomeActivity extends Activity {
 
         progressBarPlayer1 = (ProgressBar) findViewById(R.id.progressBarPlayer1);
         progressBarPlayer2 = (ProgressBar) findViewById(R.id.progressBarPlayer2);
+        progressBarPlayer1.setMax(100);
+    }
 
+
+    class play extends AsyncTask<Void, Integer, Void>{
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            while (progressBarPlayer1.getProgress() < 100)
+                progressBarPlayer1.setProgress(progressBarPlayer1.getProgress() + (int)Math.random()*5);
+                publishProgress(progressBarPlayer1.getProgress() );
+            SystemClock.sleep(1000);
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            Toast.makeText(HomeActivity.this, "Run", Toast.LENGTH_LONG);
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            Toast.makeText(HomeActivity.this, "END", Toast.LENGTH_SHORT);
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+            progressBarPlayer1.getProgress();
+        }
     }
 
     public void start(View view){
-        Toast toast1 = Toast.makeText(getApplicationContext(), "Player 1 win!", Toast.LENGTH_LONG);
-        Toast toast = Toast.makeText(getApplicationContext(), "wtf", Toast.LENGTH_LONG);
-        toast.show();
-        int progress = 0;
-        int a;
-        progressBarPlayer1.setMax(100);
-        progressBarPlayer1.setProgress(20);
-
-        while (progress < 100 ){
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            a = (int) Math.random()*10;
-            progress += progress + a;
-            if(progressBarPlayer1.getProgress() < 100 && a < 100 - progressBarPlayer1.getProgress()){
-            progressBarPlayer1.setProgress(progress);
-            } else
-            toast1.show();
-              break;
-
+       new play().execute();
         }
     }
-}

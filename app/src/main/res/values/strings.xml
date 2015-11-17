@@ -10,12 +10,12 @@
     <string name="action_settings">Settings</string>
 
     <string name="textViewPlayer1">Player 1</string>
-    <string name="editTextPlayer1">Name</string>
+    <string name="editTextPlayer1">Nikola</string>
 
     <string name="textViewPlayer2">Player 2</string>
-    <string name="editTextPlayer2">Name</string>
+    <string name="editTextPlayer2">Valera</string>
 
     <string name="textViewPlayer3">Player 3</string>
-    <string name="editTextPlayer3">Name</string>
+    <string name="editTextPlayer3">Petro</string>
 
 </resources>
