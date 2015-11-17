@@ -17,8 +17,8 @@
                 android:id="@+id/txtViewPlayer1ActivityHome" android:layout_gravity="center_horizontal"/>
         <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="145dp"
-                android:layout_height="78dp"
+                android:layout_width="296dp"
+                android:layout_height="184dp"
                 android:id="@+id/progressBarPlayer1"
                 android:layout_gravity="center"
                 android:clickable="false" android:indeterminate="false"
