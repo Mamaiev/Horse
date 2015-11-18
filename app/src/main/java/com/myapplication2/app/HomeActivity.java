@@ -41,13 +41,13 @@ public class HomeActivity extends Activity {
 
     class play extends AsyncTask<Void, Integer, Void>{
 
-        private int progress = 0;
+//        private int progress = 0;
 
         @Override
         protected Void doInBackground(Void... params) {
-            while (progress < 100)  {
-                progress++;
-                publishProgress(progress);
+            while (progressBarPlayer1.getProgress() < 100)  {
+                progressBarPlayer1.setProgress(progressBarPlayer1.getProgress() + (int) Math.random()*5);
+                publishProgress(progressBarPlayer1.getProgress());
             SystemClock.sleep(1000); }
             return null;
         }
@@ -56,15 +56,12 @@ public class HomeActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             Toast.makeText(HomeActivity.this, "Run", Toast.LENGTH_LONG);
-            System.out.println("0000000000000000000000000000000000000000000000000000000000000000000000000000000");
-
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             Toast.makeText(HomeActivity.this, "END", Toast.LENGTH_SHORT);
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
 
         @Override
