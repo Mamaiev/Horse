@@ -48,11 +48,11 @@ public class HomeActivity extends Activity {
         protected Void doInBackground(Void... params) {
             while (true) {
                 if (progress1 < 100 && progress2 < 100) {
-                    progress1++;
+                    progress1 += progress1 + (int)Math.random()*20;
                     progress2++;
                     publishProgress(progress1);
                     publishProgress(progress2);
-                    SystemClock.sleep(1000);
+                    SystemClock.sleep(500);
                 } else {
                     break;
                 }
@@ -78,7 +78,7 @@ public class HomeActivity extends Activity {
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
-            progressBarPlayer1.setProgress(values[0]);
+            progressBarPlayer1.setProgress(progress1);
             progressBarPlayer2.setProgress(progress2);
         }
     }
