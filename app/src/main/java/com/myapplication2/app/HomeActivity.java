@@ -16,8 +16,6 @@ public class HomeActivity extends Activity {
 
     private ProgressBar progressBarPlayer1;
     private ProgressBar progressBarPlayer2;
-    private Button btnStart;
-
     private TextView txtViewPlayer1ActivityHome;
     private TextView txtViewPlayer2ActivityHome;
 
@@ -48,7 +46,7 @@ public class HomeActivity extends Activity {
         protected Void doInBackground(Void... params) {
             while (true) {
                 if (progress1 < 100 && progress2 < 100) {
-                    progress1 += progress1 + (int)Math.random()*20;
+                    progress1++;                            // progress += progress1 + (int)Math.random()*20;
                     progress2++;
                     publishProgress(progress1);
                     publishProgress(progress2);
@@ -64,21 +62,18 @@ public class HomeActivity extends Activity {
         protected void onPreExecute() {
             super.onPreExecute();
             Toast.makeText(HomeActivity.this, "Run", Toast.LENGTH_LONG);
-            System.out.println("0000000000000000000000000000000000000000000000000000000000000000000000000000000");
-
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             Toast.makeText(HomeActivity.this, "END", Toast.LENGTH_SHORT);
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
 
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
-            progressBarPlayer1.setProgress(progress1);
+            progressBarPlayer1.setProgress(values[0]);                 //  maybe  (progress1)
             progressBarPlayer2.setProgress(progress2);
         }
     }
