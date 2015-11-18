@@ -45,10 +45,10 @@ public class HomeActivity extends Activity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            while (progress < 100)
+            while (progress < 100)  {
                 progress++;
                 publishProgress(progress);
-            SystemClock.sleep(1000);
+            SystemClock.sleep(1000); }
             return null;
         }
 
