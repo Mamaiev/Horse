@@ -6,15 +6,21 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:paddingBottom="@dimen/activity_vertical_margin"
-                tools:context=".MainActivity" android:id="@+id/activity_main" android:background="#ffffa56e">
+                tools:context=".MainActivity"
+                android:id="@+id/activity_main"
+        >
 
     <TextView
             android:text="@string/WELCOME"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/WELCOME"
-            android:minHeight="20dp" android:minWidth="20dp" android:textIsSelectable="true"
+            android:layout_height="wrap_content"
+            android:id="@+id/WELCOME"
+            android:minHeight="20dp"
+            android:minWidth="20dp"
+            android:textIsSelectable="true"
             android:gravity="top|center_vertical|center|fill_vertical"
-            android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             />
     <Button
             android:layout_width="wrap_content"
@@ -22,20 +28,29 @@
             android:text="New player"
             android:id="@+id/btnNewPlayer"
             android:textStyle="normal|bold|italic"
-            android:layout_alignParentBottom="true" android:layout_alignParentLeft="true" android:onClick="newPlayer"/>
-    <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/btnStart"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:onClick="newPlayer"/>
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnStart"
             android:id="@+id/btnStart"
             android:textStyle="normal|bold|italic"
-            android:layout_alignParentBottom="true" android:layout_alignRight="@+id/tableNewPlayer"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/tableNewPlayer"
             android:onClick="goToHomeActivity"/>
     <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tableNewPlayer1"
-            android:layout_below="@+id/WELCOME" android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" android:layout_alignParentStart="true">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                  android:textAppearance="?android:attr/textAppearanceMedium" android:text="@string/textViewPlayer1"
+            android:layout_below="@+id/WELCOME"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textAppearance="?android:attr/textAppearanceMedium"
+                  android:text="@string/textViewPlayer1"
                   android:id="@+id/txtViewPlayer1ActivityMain"
                   android:layout_alignTop="@+id/editTextPlayer1"
                   android:layout_alignParentLeft="true"/>
@@ -96,7 +111,8 @@
         <EditText android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:inputType="textPersonName"
-                  android:text="@string/editTextPlayer3" android:ems="10"
+                  android:text="@string/editTextPlayer3"
+                  android:ems="10"
                   android:id="@+id/editTextPlayer3"
                   android:singleLine="true"
                   android:layout_below="@+id/tableNewPlayer1"

@@ -1,6 +1,7 @@
 package com.myapplication2.app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -10,15 +11,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Random;
-
 public class HomeActivity extends Activity {
 
     private ProgressBar progressBarPlayer1;
     private ProgressBar progressBarPlayer2;
     private TextView txtViewPlayer1ActivityHome;
     private TextView txtViewPlayer2ActivityHome;
-
+    private Button btnRestart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,18 +40,27 @@ public class HomeActivity extends Activity {
 
         private int progress1 = 0;
         private int progress2 = 0;
+        Toast toastPlayer1Win = Toast.makeText(HomeActivity.this, txtViewPlayer1ActivityHome.getText(), Toast.LENGTH_SHORT);  //  maybe  txtViewPlayer1ActivityHome.toString()
+        Toast toastPlayer2Win = Toast.makeText(HomeActivity.this, txtViewPlayer2ActivityHome.getText(), Toast.LENGTH_SHORT);  //  maybe  txtViewPlayer2ActivityHome.toString()
 
         @Override
         protected Void doInBackground(Void... params) {
             while (true) {
+                SystemClock.sleep(500);
                 if (progress1 < 100 && progress2 < 100) {
                     progress1++;                            // progress += progress1 + (int)Math.random()*20;
+                    progress1++;
                     progress2++;
                     publishProgress(progress1);
-                    publishProgress(progress2);
-                    SystemClock.sleep(500);
-                } else {
-                    break;
+                    if(progress1 >= 100){
+                        toastPlayer1Win.show();
+                        break;
+                    }else {
+                        publishProgress(progress2);
+                        if(progress2 >= 100)
+                            toastPlayer2Win.show();
+                        break;
+                    }
                 }
             }
             return null;
@@ -61,19 +69,19 @@ public class HomeActivity extends Activity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            Toast.makeText(HomeActivity.this, "Run", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(HomeActivity.this, "GO !!!", Toast.LENGTH_SHORT);
+            toast.show();
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            Toast.makeText(HomeActivity.this, "END", Toast.LENGTH_SHORT);
         }
 
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
-            progressBarPlayer1.setProgress(values[0]);                 //  maybe  (progress1)
+            progressBarPlayer1.setProgress(progress1);                 //  maybe  (progress1 or value[0])
             progressBarPlayer2.setProgress(progress2);
         }
     }
@@ -81,4 +89,11 @@ public class HomeActivity extends Activity {
     public void start(View view){
        new play().execute();
         }
+
+    public void restart(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("NamePlayer1", txtViewPlayer1ActivityHome.getText().toString());        //  ак передать в MainActivity и записать их, но не сбить то что есть на MainActivity(≈сли переход от сюда, то изменить имена пользвователей так как они сто€т в HomeActivity, если первых вход в  MainActivity то имена по умолчанию)
+        intent.putExtra("NamePlayer2", txtViewPlayer2ActivityHome.getText().toString());
+        startActivity(intent);
+    }
     }

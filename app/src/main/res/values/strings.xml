@@ -6,6 +6,7 @@
     <string name="btnNewPlayer">New player</string>
     <string name="btnPlay">Play</string>
     <string name="btnStart">Start!</string>
+    <string name="btnRestart">Restart</string>
 
     <string name="action_settings">Settings</string>
 

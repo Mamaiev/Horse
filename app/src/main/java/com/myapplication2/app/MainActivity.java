@@ -14,7 +14,7 @@ import android.widget.TableLayout;
 import static android.view.View.INVISIBLE;
 
 
-public class MainActivity extends Activity {
+public class    MainActivity extends Activity {
 
     private TableLayout tableNewPlayer;
     private Button btnNewPlayer;
